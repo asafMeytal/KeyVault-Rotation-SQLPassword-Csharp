@@ -65,13 +65,15 @@ namespace Microsoft.KeyVault
 
         private static void UpdateServicePassword(KeyVaultSecret secret, string newpassword)
         {
+	    log.LogInformation("Inside UpdateServicePassword pass");
             var userId = secret.Properties.Tags.ContainsKey(CredentialIdTag) ? secret.Properties.Tags[CredentialIdTag] : "";
             var datasource = secret.Properties.Tags.ContainsKey(ProviderAddressTag) ? secret.Properties.Tags[ProviderAddressTag] : "";
             var dbResourceId = secret.Properties.Tags.ContainsKey(ProviderAddressTag) ? secret.Properties.Tags[ProviderAddressTag] : "";
             
             var dbName = dbResourceId.Split('/')[8];
             var password = secret.Value;
-            
+
+            log.LogInformation($"DB name: {dbName}");
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
             builder.DataSource = $"{dbName}.postgres.database.azure.com";
             builder.UserID = userId;
