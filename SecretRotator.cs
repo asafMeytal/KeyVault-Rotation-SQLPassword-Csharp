@@ -29,7 +29,7 @@ namespace Microsoft.KeyVault
             var validityPeriodDays = secret.Properties.Tags.ContainsKey(ValidityPeriodDaysTag) ? secret.Properties.Tags[ValidityPeriodDaysTag] : "";
             log.LogInformation($"Provider Address: {providerAddress}");
             log.LogInformation($"Credential Id: {credentialId}");
-	    log.LogInformation("debug print");
+            log.LogInformation("debug print");
 
             //Check Service Provider connection
             CheckServiceConnection(secret);
@@ -66,7 +66,7 @@ namespace Microsoft.KeyVault
 
         private static void UpdateServicePassword(KeyVaultSecret secret, string newpassword)
         {
-	    log.LogInformation("Inside UpdateServicePassword pass");
+            log.LogInformation("Inside UpdateServicePassword pass");
             var userId = secret.Properties.Tags.ContainsKey(CredentialIdTag) ? secret.Properties.Tags[CredentialIdTag] : "";
             var datasource = secret.Properties.Tags.ContainsKey(ProviderAddressTag) ? secret.Properties.Tags[ProviderAddressTag] : "";
             var dbResourceId = secret.Properties.Tags.ContainsKey(ProviderAddressTag) ? secret.Properties.Tags[ProviderAddressTag] : "";
