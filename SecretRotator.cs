@@ -29,6 +29,7 @@ namespace Microsoft.KeyVault
             var validityPeriodDays = secret.Properties.Tags.ContainsKey(ValidityPeriodDaysTag) ? secret.Properties.Tags[ValidityPeriodDaysTag] : "";
             log.LogInformation($"Provider Address: {providerAddress}");
             log.LogInformation($"Credential Id: {credentialId}");
+	    log.LogInformation("debug print");
 
             //Check Service Provider connection
             CheckServiceConnection(secret);
