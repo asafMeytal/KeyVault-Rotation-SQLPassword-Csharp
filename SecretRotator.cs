@@ -73,7 +73,7 @@ namespace Microsoft.KeyVault
             var password = secret.Value;
             
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-            builder.DataSource = $"{dbName}.database.windows.net";
+            builder.DataSource = $"{dbName}.postgres.database.azure.com";
             builder.UserID = userId;
             builder.Password = password;
     
